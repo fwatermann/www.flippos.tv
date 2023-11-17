@@ -1,0 +1,7 @@
+img.swimming_delfon {
+    display: block;
+    width: 200px;
+    position: absolute;
+    transition: transform 150ms ease;
+    pointer-events: none;
+}
