@@ -36,6 +36,9 @@ export class SwimmingDelfons {
         window.addEventListener("resize", () => {
             canvasElement.width = window.innerWidth;
             canvasElement.height = window.innerHeight;
+            this.entities.filter(delfon => delfon instanceof Delfon).forEach(delfon => {
+                delfon.target = new Vector2(window.innerWidth / 2, window.innerHeight / 2);
+            });
         });
         window.addEventListener("keydown", (event) => {
             if(!event.repeat) {
