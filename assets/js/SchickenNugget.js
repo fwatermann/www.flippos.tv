@@ -10,6 +10,7 @@ export default class SchickenNugget extends DelfonEntity {
     }
 
     hitbox;
+    destroy = false;
 
     constructor() {
         super();
@@ -38,6 +39,10 @@ export default class SchickenNugget extends DelfonEntity {
         if(window.debug) {
             this.hitbox.draw(context);
         }
+    }
+
+    readyForDeletion() {
+        return this.destroy;
     }
 
 }

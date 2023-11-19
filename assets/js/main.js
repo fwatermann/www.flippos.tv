@@ -6,9 +6,15 @@ import SchickenNugget from "./SchickenNugget.js";
 const canvasElement = document.getElementsByTagName("canvas")[0];
 const context = canvasElement.getContext("2d");
 
-const delfonCount = 20;
+const delfonCount = 10;
 
-window.debug = false;
+window.debug = {
+    hitbox: false,
+    velocity: false,
+    target: false,
+    info: false
+};
+window.frameRate = 60;
 window.mousePosition = {
     x: 0,
     y: 0
@@ -32,9 +38,21 @@ export class SwimmingDelfons {
             canvasElement.height = window.innerHeight;
         });
         window.addEventListener("keydown", (event) => {
-            if(event.key === "d" && !event.repeat) {
-                window.debug = !window.debug;
-                console.log("DEBUG ON");
+            if(!event.repeat) {
+                switch(event.key) {
+                    case "h":
+                        window.debug.hitbox = !window.debug.hitbox;
+                        break;
+                    case "v":
+                        window.debug.velocity = !window.debug.velocity;
+                        break;
+                    case "t":
+                        window.debug.target = !window.debug.target;
+                        break;
+                    case "i":
+                        window.debug.info = !window.debug.info;
+                        break;
+                }
             }
         });
         window.addEventListener("mousemove", (event) => {
@@ -75,7 +93,7 @@ export class SwimmingDelfons {
         setInterval(() => {
             context.clearRect(0, 0, canvasElement.width, canvasElement.height);
             this.loop();
-        }, 1000 / 60);
+        }, 1000 / window.frameRate);
     }
 
 }

@@ -46,4 +46,15 @@ export class Vector2 {
         return new Vector2(this.x, this.y);
     }
 
+    rotate(angle) {
+        let x = this.x;
+        let y = this.y;
+        this.x = x * Math.cos(angle) - y * Math.sin(angle);
+        this.y = x * Math.sin(angle) + y * Math.cos(angle);
+    }
+
+    normal() {
+        return new Vector2(-this.y, this.x);
+    }
+
 }
