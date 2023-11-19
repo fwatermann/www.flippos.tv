@@ -210,7 +210,6 @@ export default class Delfon extends DelfonEntity {
         const d = (this.size.y * (25 / this.initSize.y));
         this.headHitbox.size = new Vector2(c, d);
 
-        const angle = Math.atan2(this.velocity.y, this.velocity.x);
         this.headHitbox.rotation = this.rotation;
         this.bodyHitbox.rotation = this.rotation;
     }

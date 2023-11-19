@@ -36,7 +36,7 @@ export default class SchickenNugget extends DelfonEntity {
     draw(context) {
         context.drawImage(SchickenNugget.TEXTURE, this.position.x - this.size.x / 2, this.position.y - this.size.y / 2, this.size.x, this.size.y);
 
-        if(window.debug) {
+        if(window.debug.hitbox) {
             this.hitbox.draw(context);
         }
     }
